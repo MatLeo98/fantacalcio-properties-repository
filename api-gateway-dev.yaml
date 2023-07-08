@@ -24,7 +24,7 @@ spring:
         - id: prosumer_1_route
           uri: lb://prosumer-1-microservice
           predicates:
-          - Path=/api/pr1/**
+          - Path=/api/best-formation/**
           filters:
           - RewritePath=/api(?<segment>/?), $\{segment}
 
