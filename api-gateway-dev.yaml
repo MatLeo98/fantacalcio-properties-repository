@@ -7,20 +7,7 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: user_route
-          uri: lb://user-microservice
-          predicates:
-          - Path=/api/usr/**
-          filters:
-          - RewritePath=/api/usr(?<segment>), /user$\{segment}
-
-        - id: job_route
-          uri: lb://job-microservice
-          predicates:
-          - Path=/api/job/**
-          filters:
-          - RewritePath=/api(?<segment>/?), $\{segment}
-
+      
         - id: prosumer_1_route
           uri: lb://prosumer-1-microservice
           predicates:
