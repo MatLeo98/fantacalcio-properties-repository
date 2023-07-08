@@ -21,6 +21,13 @@ spring:
           filters:
           - RewritePath=/api(?<segment>/?), $\{segment}
 
+        - id: prosumer_1_route
+          uri: lb://prosumer-1-microservice
+          predicates:
+          - Path=/api/pr1/**
+          filters:
+          - RewritePath=/api/pr1(?<segment>), /pros1$\{segment}
+
 management:
   endpoints:
     web:
