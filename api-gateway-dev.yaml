@@ -15,6 +15,13 @@ spring:
           filters:
           - RewritePath=/api(?<segment>/?), $\{segment}
 
+        - id: prosumer_3_route
+          uri: lb://prosumer-3-microservice
+          predicates:
+          - Path=/api/formation/**
+          filters:
+          - RewritePath=/api(?<segment>/?), $\{segment}
+
 management:
   endpoints:
     web:
