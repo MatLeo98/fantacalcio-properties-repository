@@ -36,6 +36,13 @@ spring:
           filters:
           - RewritePath=/api(?<segment>/?), $\{segment}
 
+        - id: player_route
+          uri: lb://player-microservice
+          predicates:
+          - Path=/api/player/**
+          filters:
+          - RewritePath=/api(?<segment>/?), $\{segment}
+
 management:
   endpoints:
     web:
